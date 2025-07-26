@@ -1,0 +1,11 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#proyecto-lista .card {
+  transition: transform 0.2s;
+}
+
+#proyecto-lista .card:hover {
+  transform: scale(1.05);
+}
