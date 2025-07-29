@@ -1,5 +1,32 @@
+:root {
+  --fondo-principal: #0F172A;
+  --color-acento: #06B6D4;
+  --color-texto: #F1F5F9;
+}
+
 body {
+  background-color: var(--fondo-principal);
+  color: var(--color-texto);
   font-family: 'Segoe UI', sans-serif;
+}
+
+header, footer {
+  background-color: #1E293B;
+}
+
+a.nav-link,
+.navbar-brand {
+  color: var(--color-texto) !important;
+}
+
+.card {
+  background-color: #1E1E2F;
+  color: var(--color-texto);
+  border: none;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px var(--color-acento);
 }
 
 #proyecto-lista .card {
