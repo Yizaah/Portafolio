@@ -24,7 +24,7 @@ Aplicación web desarrollada con Django para la gestión básica de expedientes 
 🔗 **Enlace al proyecto:**
 
 ```md
-[Gestión de Causas Judiciales](./proyecto1/gestion_judicial/)
+[Gestión de Causas Judiciales](./proyecto1/gestion_judicial)
 ```
 
 ## Tecnologías y Herramientas
