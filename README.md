@@ -24,7 +24,7 @@ Aplicación web desarrollada con Django para la gestión básica de expedientes 
 🔗 **Enlace al proyecto:**
 
 ```md
-[Gestión de Causas Judiciales](./proyecto1/gestion_judicial)
+[Gestión de Causas Judiciales](proyecto1/gestion_judicial)
 ```
 
 ## Tecnologías y Herramientas
@@ -69,7 +69,7 @@ Busco una **posición junior como desarrollador Fullstack Python/Django**, donde
 
  **Contacto**
 
-*[(Linkedin)](https://www.linkedin.com/in/yitzhak-valenzuela/)*
+*[Linkedin](https://www.linkedin.com/in/yitzhak-valenzuela/)*
 *[GitHub](https://yizaah.github.io/Portafolio/)*
 
 ---
