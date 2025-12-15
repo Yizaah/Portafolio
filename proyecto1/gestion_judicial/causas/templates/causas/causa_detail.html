@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detalle Causa {{ causa }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Causa {{ causa }}</h1>
+<a href="{% url 'causas:editar' causa.pk %}">Editar causa</a>
+<section>
+    <h3>Datos de la causa</h3>
+    <ul>
+        <li><strong>Competencia:</strong> {{ causa.get_competencia_display }}</li>
+        <li><strong>Tribunal:</strong> {{ causa.tribunal }}</li>
+        {% if causa.corte %}
+            <li><strong>Corte:</strong> {{ causa.corte }}</li>
+        {% endif %}
+        <li><strong>Cliente:</strong> {{ causa.cliente }}</li>
+        <li><strong>Estado:</strong> {{ causa.get_estado_display }}</li>
+        <li><strong>Fecha creación:</strong> {{ causa.fecha_creacion }}</li>
+    </ul>
+</section>
+
+<hr>
+
+<section>
+    <h3>Descripción</h3>
+    <p>{{ causa.descripcion|linebreaks }}</p>
+</section>
+
+<hr>
+<hr>
+
+<section>
+    <h3>Agregar nuevo movimiento</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar movimiento</button>
+    </form>
+</section>
+
+<hr>
+
+<section>
+    <h3>Movimientos de la causa</h3>
+
+    {% if movimientos %}
+        <ul>
+            {% for movimiento in movimientos %}
+                <li>
+                    <strong>{{ movimiento.fecha }}</strong><br>
+                    {{ movimiento.descripcion|linebreaks }}
+                    {% if movimiento.observaciones %}
+                        <br><em>{{ movimiento.observaciones|linebreaks }}</em>
+                    {% endif %}
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No existen movimientos registrados para esta causa.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

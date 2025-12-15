@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de Causas{% endblock %}
+
+{% block content %}
+
+<h1>Causas Judiciales</h1>
+
+<form method="get">
+    <input type="text" name="cliente" placeholder="Cliente (nombre, apellido o RUT)"
+           value="{{ request.GET.cliente }}">
+
+    <input type="text" name="tribunal" placeholder="Tribunal"
+           value="{{ request.GET.tribunal }}">
+
+    <input type="text" name="tipo_causa" placeholder="Tipo (Letra)"
+           value="{{ request.GET.tipo_causa }}">
+
+    <input type="number" name="rol" placeholder="Rol"
+           value="{{ request.GET.rol }}">
+
+    <input type="number" name="anio" placeholder="Año"
+           value="{{ request.GET.anio }}">
+
+    <select name="competencia">
+        <option value="">Competencia</option>
+        {% for value, label in causas.model.Competencia.choices %}
+            <option value="{{ value }}" {% if request.GET.competencia == value %}selected{% endif %}>
+                {{ label }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <select name="estado">
+        <option value="">Estado</option>
+        {% for value, label in causas.model.EstadoCausa.choices %}
+            <option value="{{ value }}" {% if request.GET.estado == value %}selected{% endif %}>
+                {{ label }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<hr>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Rol</th>
+            <th>Tribunal</th>
+            <th>Cliente</th>
+            <th>Competencia</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for causa in causas %}
+        <tr>
+            <td>
+                <a href="{% url 'causas:detalle' causa.pk %}">
+                    {{ causa }}
+                </a>
+            </td>
+            <td>{{ causa.tribunal }}</td>
+            <td>{{ causa.cliente }}</td>
+            <td>{{ causa.get_competencia_display }}</td>
+            <td>{{ causa.get_estado_display }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No se encontraron causas</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
