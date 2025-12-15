@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Editar Causa {{ object }}{% endblock %}
+{% block title %}Editar cliente{% endblock %}
 
 {% block content %}
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title mb-3">
-        Editar Causa {{ object }}
-    </h5>
+    <h5 class="card-title mb-3">Editar cliente</h5>
 
     <form method="post">
         {% csrf_token %}
@@ -19,7 +17,7 @@
                 Guardar cambios
             </button>
 
-            <a href="{% url 'causas:detalle' object.pk %}"
+            <a href="{% url 'clientes:detalle' object.pk %}"
                class="btn btn-secondary">
                 Cancelar
             </a>

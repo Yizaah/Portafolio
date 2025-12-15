@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<h1>Sistema de Gestión Judicial</h1>
+
+<p>Bienvenido al sistema de gestión de causas y clientes.</p>
+
+<ul>
+    <li><a href="{% url 'causas:lista' %}">Ver causas</a></li>
+    <li><a href="{% url 'clientes:lista' %}">Ver clientes</a></li>
+</ul>
+
+{% endblock %}

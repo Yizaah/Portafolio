@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Cliente {{ cliente }}{% endblock %}
+
+{% block content %}
+
+
+<h1 class="mb-4">{{ cliente }}</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Información del cliente</h5>
+    <p><strong>RUT:</strong> {{ cliente.rut }}</p>
+    <p><strong>Email:</strong> {{ cliente.email }}</p>
+    <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+    <p><strong>Dirección:</strong>{{ cliente.direccion }}</p>
+  </div>
+</div>
+
+<hr>
+<a href="{% url 'clientes:editar' object.pk %}">Editar cliente</a>
+<section>
+    <h3>Descripción</h3>
+    <p>{{ cliente.descripcion|linebreaks }}</p>
+</section>
+
+<hr>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Causas asociadas</h5>
+
+    {% if causas %}
+        <ul class="list-group">
+            {% for causa in causas %}
+                <li class="list-group-item">
+                    <a href="{% url 'causas:detalle' causa.pk %}">
+                        {{ causa }} – {{ causa.get_estado_display }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">Este cliente no tiene causas asociadas.</p>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}
