@@ -56,7 +56,6 @@ Aplicación web desarrollada con Django para la gestión básica de expedientes 
 │── proyecto1/
 │   └── gestion_judicial/
 ```
-
 ---
 
 ## Objetivo Profesional
