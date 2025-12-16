@@ -51,10 +51,10 @@ Aplicación web desarrollada con Django para la gestión básica de expedientes 
 ## Estructura del Portafolio
 
 ```text
-/portfolio
+/portafolio
 │── README.md
-│── gestion-causas-judiciales/
-│   └── proyecto Django
+│── proyecto1/
+│   └── gestion_judicial/
 ```
 
 ---
